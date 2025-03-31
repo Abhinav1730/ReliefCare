@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import { useNavigate } from "react-router-dom";
 
-const RelatedDoctors = (docId, speciality) => {
+const RelatedDoctors = ({ docId, speciality }) => {
   const navigate = useNavigate();
   const { doctors } = useContext(AppContext);
 
@@ -26,7 +26,10 @@ const RelatedDoctors = (docId, speciality) => {
       <div className="w-full grid grid-cols-auto gap-4 pt-5 gap-y-6 px-3 sm:px-0">
         {relatedDoctor.slice(0, 5).map((item, index) => (
           <div
-            onClick={() => navigate(`/appointment/${item._id}`)}
+            onClick={() => {
+              navigate(`/appointment/${item._id}`);
+              scrollTo(0, 0);
+            }}
             className="border border-blue-200 rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-10px] transition-all duration-500"
             key={index}
           >
