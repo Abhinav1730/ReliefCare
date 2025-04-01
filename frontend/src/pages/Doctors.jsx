@@ -7,6 +7,7 @@ const Doctors = () => {
 
   const { speciality } = useParams();
   const [filterofDoctors, setFilterofDoctors] = useState([]);
+  const [showFilterIcon, setShowFilterIcon] = useState(false);
   //console.log(speciality)
   const { doctors } = useContext(AppContext);
 
@@ -24,9 +25,21 @@ const Doctors = () => {
   }, [doctors, speciality]);
   return (
     <div>
-      <p className="text-gray-600">Browse through the doctors specialist...</p>
+      <p className="text-gray-600">Browse through the specialist doctors...</p>
       <div className="flex flex-col sm:flex-row items-start gap-5 mt-5">
-        <div className=" flex flex-col gap-4 text-sm text-gray-600">
+        <button
+          className={`py-1 px-3 border rounded text-sm transition-all sm:hidden ${
+            showFilterIcon ? "bg-primary text-white" : ""
+          }`}
+          onClick={() => setShowFilterIcon((prev) => !prev)}
+        >
+          Filter
+        </button>
+        <div
+          className={` flex-col gap-4 text-sm text-gray-600 ${
+            showFilterIcon ? "flex" : "hideden sm:flex"
+          }`}
+        >
           <p
             onClick={() =>
               speciality === "General physician"
