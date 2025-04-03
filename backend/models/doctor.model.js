@@ -38,7 +38,7 @@ const doctorSchema = new Schema(
     },
     available: {
       type: Boolean,
-      required: true,
+      default: true,
     },
     fees: {
       type: Number,
