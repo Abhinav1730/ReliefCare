@@ -1,5 +1,6 @@
 import doctorModel from "../models/doctor.model.js";
 
+//For changing availability of doctors in the admin panel
 const changeAvailability = async (req, res) => {
   try {
     const { docId } = req.body;
@@ -14,4 +15,15 @@ const changeAvailability = async (req, res) => {
   }
 };
 
-export { changeAvailability };
+//For showing the list of doctors from backend to the frontend
+const doctorList = async (req, res) => {
+  try {
+    const doctors = await doctorModel.find({}).select(["-password", "-email"]);
+    res.json({ success: true, doctors });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
+
+export { changeAvailability, doctorList };
