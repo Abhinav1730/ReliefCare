@@ -10,7 +10,7 @@ app.use(
   })
 );
 
-app.use(express.json({ limit: "16kb" }));
+app.use(express.json());
 
 //api endpoint
 app.use("/api/admin", adminRouter);

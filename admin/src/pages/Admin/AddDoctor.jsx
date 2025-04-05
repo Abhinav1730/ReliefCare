@@ -44,8 +44,9 @@ const AddDoctor = () => {
 
       // console log form data
       formData.forEach((value, key) => {
-        console.log(`${key}:${value}`);
+        console.log(`${key}:`, value);
       });
+      console.log("Image File:", docImg);
       const { data } = await axios.post(
         backendUrl + "/api/admin/add-doctor",
         formData,
