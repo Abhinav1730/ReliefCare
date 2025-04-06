@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import adminRouter from "./routes/admin.routes.js";
 import doctorRouter from "./routes/doctor.route.js";
+import userRouter from "./routes/user.routes.js";
 
 const app = express();
 app.use(
@@ -19,5 +20,8 @@ app.use("/api/admin", adminRouter);
 
 app.use("/api/doctor", doctorRouter);
 //localhost:8000/api/doctor/list
+
+app.use("/api/user", userRouter);
+//localhost:8000/api/user/register
 
 export { app };
