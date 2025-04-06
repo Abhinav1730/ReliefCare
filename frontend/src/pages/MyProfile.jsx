@@ -1,21 +1,11 @@
-import React, { useState } from "react";
-import { assets } from "../../public/assets";
+import React, { useContext, useState } from "react";
+//import { assets } from "../../public/assets"; removing assets as we have connected backend successfully
+import { AppContext } from "../context/AppContext";
 
 const MyProfile = () => {
-  const [userData, setUserData] = useState({
-    name: "Abhinav Saxena",
-    image: assets.profile_pic,
-    email: "myemail@gmail.com",
-    phone: "+91-1234567890",
-    address: {
-      line1: "abcd",
-      line2: "xyz",
-    },
-    gender: "Male",
-    dob: "2004-09-30",
-  });
+  const { userData, setUserData } = useContext(AppContext);
   const [isEditable, setIsEditable] = useState(false);
-  return (
+  return userData && (
     <div className="max-w-lg flex flex-col gap-2 text-sm">
       <img className="w-36 rounded" src={userData.image} alt="" />
       {isEditable ? (
