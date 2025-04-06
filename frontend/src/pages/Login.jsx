@@ -95,7 +95,7 @@ const Login = () => {
         </div>
         <button
           type="submit"
-          onClick={() => handleSubmit}
+          onClick={ handleSubmit}
           className="bg-primary text-white w-full py-2 rounded-md text-base"
         >
           {loginState === "Sign Up" ? "Create Account" : "Login"}
