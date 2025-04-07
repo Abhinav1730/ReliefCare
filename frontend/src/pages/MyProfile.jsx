@@ -16,8 +16,7 @@ const MyProfile = () => {
       const formData = new FormData();
       formData.append("name", userData.name);
       formData.append("phone", userData.phone);
-      formData.append("phone", userData.phone);
-      formData.append("address", JSON.stringify(userData.phone));
+      formData.append("address", JSON.stringify(userData.address));
       formData.append("gender", userData.gender);
       formData.append("dob", userData.dob);
 
@@ -41,6 +40,7 @@ const MyProfile = () => {
       toast.error(error.message);
     }
   };
+
   return (
     userData && (
       <div className="max-w-lg flex flex-col gap-2 text-sm">
@@ -96,7 +96,7 @@ const MyProfile = () => {
                 type="text"
                 value={userData.phone}
                 onChange={(e) =>
-                  setUserData((prev) => ({ ...prev, name: e.target.value }))
+                  setUserData((prev) => ({ ...prev, phone: e.target.value }))
                 }
               />
             ) : (
@@ -148,11 +148,11 @@ const MyProfile = () => {
                 onChange={(e) =>
                   setUserData((prev) => ({ ...prev, gender: e.target.value }))
                 }
-                value={userData.gender}
+                value={userData.gender || "Male"}
               >
-                <option value="Male"></option>
-                <option value="Female"></option>
-                <option value="Others"></option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
               </select>
             ) : (
               <p className="text-gray-400">{userData.gender}</p>
@@ -162,8 +162,10 @@ const MyProfile = () => {
               <input
                 className="max-w-28 bg-gray-100"
                 type="date"
-                onChange={(e) => (prev) => ({ ...prev, dob: e.target.value })}
-                value={userData.dob}
+                onChange={(e) =>
+                  setUserData((prev) => ({ ...prev, dob: e.target.value }))
+                }
+                value={userData.dob === "Not Selected" ? "" : userData.dob}
               />
             ) : (
               <p className="text-gray-400">{userData.dob}</p>

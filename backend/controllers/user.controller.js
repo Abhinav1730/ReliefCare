@@ -68,8 +68,8 @@ const loginUser = async (req, res) => {
 //API to get user profile data
 const getProfile = async (req, res) => {
   try {
-    const { id } = req.user;
-    const userData = await userModel.findById(id).select("-password");
+    const { userId } = req.body;
+    const userData = await userModel.findById(userId).select("-password");
     res.json({ success: true, userData });
   } catch (error) {
     console.log(error);
@@ -97,6 +97,7 @@ const updateProfile = async (req, res) => {
       const imageUpload = await cloudinary.uploader.upload(imageFile.path, {
         resource_type: "image",
       });
+      console.log(imageUpload);
       const imageURL = imageUpload.secure_url;
       await userModel.findByIdAndUpdate(userId, { image: imageURL });
     }

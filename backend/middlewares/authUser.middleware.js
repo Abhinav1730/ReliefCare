@@ -11,9 +11,8 @@ const authUser = async (req, res, next) => {
       });
     }
     const decodedtoken = jwt.verify(token, process.env.JWT_SECRET);
-    console.log(decodedtoken);
-    req.user = decodedtoken;
-
+    req.body = req.body || {};
+    req.body.userId = decodedtoken.id;
     next();
   } catch (error) {
     console.log(error);
