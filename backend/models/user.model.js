@@ -40,7 +40,6 @@ const userSchema = new Schema(
   },
   { timestamps: true }
 );
-console.log(typeof dob);
 
 const userModel = mongoose.models.User || mongoose.model("User", userSchema);
 export default userModel;
