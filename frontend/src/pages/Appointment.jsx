@@ -74,11 +74,6 @@ const Appointment = () => {
             time: formatedTime,
           });
         }
-        //add slot to array
-        // timeSlots.push({
-        //   dateTime: new Date(currentDate),
-        //   time: formatedTime,
-        // });
 
         //increment current time by 30 minutes
         currentDate.setMinutes(currentDate.getMinutes() + 30);
