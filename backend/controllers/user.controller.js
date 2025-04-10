@@ -109,6 +109,7 @@ const updateProfile = async (req, res) => {
   }
 };
 
+//API to book Appointment
 const bookAppointment = async (req, res) => {
   try {
     const { userId, docId, slotDate, slotTime } = req.body;
@@ -126,7 +127,7 @@ const bookAppointment = async (req, res) => {
       if (slots_booked[slotDate].includes(slotTime)) {
         return res.json({
           success: false,
-          message: "Slot for this time is not Available",
+          message: "Slot is not Available for this Time",
         });
       } else {
         slots_booked[slotDate].push(slotTime);
