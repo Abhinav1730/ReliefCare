@@ -8,6 +8,7 @@ import {
   paymentOfAppointmentsUsingRazorpay,
   registerUser,
   updateProfile,
+  verifyRazorpay,
 } from "../controllers/user.controller.js";
 import authUser from "../middlewares/authUser.middleware.js";
 import upload from "../middlewares/multer.middleware.js";
@@ -31,5 +32,6 @@ userRouter.post(
   authUser,
   paymentOfAppointmentsUsingRazorpay
 );
+userRouter.post("/verify-razorpay", authUser, verifyRazorpay);
 
 export default userRouter;
