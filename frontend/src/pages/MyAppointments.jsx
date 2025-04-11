@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const MyAppointments = () => {
   const { backendUrl, token, getDoctorsData } = useContext(AppContext);
+  const navigate = useNavigate();
 
   const [appointments, setAppointments] = useState([]);
   const months = [
@@ -23,8 +24,6 @@ const MyAppointments = () => {
     "NOV",
     "DEC",
   ];
-
-  const navigate = useNavigate();
 
   const slotDataFormat = (slotDate) => {
     const dateArray = slotDate.split("_");
