@@ -26,6 +26,7 @@ const Appointment = () => {
   };
 
   const getAvailableSlots = async () => {
+    if (!docInfo || !docInfo.slots_booked) return;
     setDoctorsSlot([]);
 
     //getting current date
