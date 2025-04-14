@@ -5,3 +5,5 @@ This app strengthen the doctor-patient relationships by making direct contact an
 
 Main Features of the APP:
 1)Front End :- Front End is developed using React.js using state managements , Context API , packages such as react-router-dom , axios , react-toastify.
+    The front end part of the web application consists of two UIs , one for the users and one for the admin who has a personal access to application's internal information.
+    Main focus was to deliver an attractive yet a simple UI with fully responsive experience , made using Tailwind CSS , the Application is 100% responsive accross all devices and screens.
