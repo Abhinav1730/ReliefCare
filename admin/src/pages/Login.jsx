@@ -5,12 +5,14 @@ import { useContext } from "react";
 import { AdminContext } from "../context/AdminContext.jsx";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { DoctorContext } from "../context/DoctorContext.jsx";
 
 const Login = () => {
   const [loginState, setLoginState] = useState("Admin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setAdminToken, backendUrl } = useContext(AdminContext);
+  const { setDoctorToken } = useContext(DoctorContext);
 
   const handleSumbit = async (event) => {
     event.preventDefault();
@@ -26,10 +28,21 @@ const Login = () => {
         } else {
           toast.error(data.message);
         }
+      } else {
+        const { data } = await axios.post(backendUrl + "/api/doctor/login", {
+          email,
+          password,
+        });
+        if (data.success) {
+          localStorage.setItem("doctorToken", data.token);
+          setDoctorToken(data.token);
+        } else {
+          toast.error(data.message);
+        }
       }
     } catch (error) {
-        toast.error(error.message)
-        console.log(error)
+      toast.error(error.message);
+      console.log(error);
     }
   };
 
