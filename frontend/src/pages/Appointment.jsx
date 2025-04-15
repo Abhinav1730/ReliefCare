@@ -7,8 +7,9 @@ import { toast } from "react-toastify";
 import axios from "axios";
 
 const Appointment = () => {
+  const backendUrl = "https://reliefcare-backend.onrender.com";
   const { docId } = useParams();
-  const { doctors, currencySymbol, backendUrl, token, getDoctorsData } =
+  const { doctors, currencySymbol, token, getDoctorsData } =
     useContext(AppContext);
   const daysOfWeek = ["SUN", "MON", "TUES", "WED", "THURS", "FRI", "SAT"];
 

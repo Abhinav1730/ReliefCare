@@ -5,13 +5,9 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const DoctorProfile = () => {
-  const {
-    getProfileData,
-    doctorToken,
-    profileData,
-    setProfileData,
-    backendUrl,
-  } = useContext(DoctorContext);
+  const backendUrl = "https://reliefcare-backend.onrender.com";
+  const { getProfileData, doctorToken, profileData, setProfileData } =
+    useContext(DoctorContext);
   const { currency } = useContext(AppContext);
 
   const [isEdit, setIsEdit] = useState(false);
