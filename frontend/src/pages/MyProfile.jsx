@@ -6,8 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const MyProfile = () => {
-  const backendUrl = "https://reliefcare-backend.onrender.com";
-  const { userData, setUserData, token, loadUserProfileData } =
+  const { userData, setUserData, token, backendUrl, loadUserProfileData } =
     useContext(AppContext);
   const [isEditable, setIsEditable] = useState(false);
   const [image, setImage] = useState(false);

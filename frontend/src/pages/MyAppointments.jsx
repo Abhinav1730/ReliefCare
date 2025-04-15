@@ -5,8 +5,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 const MyAppointments = () => {
-  const backendUrl = "https://reliefcare-backend.onrender.com";
-  const { token, getDoctorsData } = useContext(AppContext);
+  const { backendUrl, token, getDoctorsData } = useContext(AppContext);
   const navigate = useNavigate();
 
   const [appointments, setAppointments] = useState([]);

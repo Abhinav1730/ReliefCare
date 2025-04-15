@@ -6,8 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
-  const backendUrl = "https://reliefcare-backend.onrender.com";
-  const { token, setToken } = useContext(AppContext);
+  const { backendUrl, token, setToken } = useContext(AppContext);
   const [loginState, setLoginState] = useState("Sign Up");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -96,7 +95,7 @@ const Login = () => {
         </div>
         <button
           type="submit"
-          onClick={handleSubmit}
+          onClick={ handleSubmit}
           className="bg-primary text-white w-full py-2 rounded-md text-base"
         >
           {loginState === "Sign Up" ? "Create Account" : "Login"}
